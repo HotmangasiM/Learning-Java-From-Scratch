@@ -1,0 +1,42 @@
+1. javac nama_file.java digunakan untuk mengkonversi kode .java menjadi .class yang nantinya dijalankan di JVM(java virtual machine)
+2. Setiap baris kode yang dijalankan di Java berada didalam class, dengan namanya yaitu Uppercase untuk huruf pertama
+3. apabila nama class itu Main, maka file juga harus disimpan dengan nama yang sama yaitu Main.java
+4. public static void main(String[] args) merupakan entry point saya program java dijalankan
+5. public artinya dapat diakses darimanapun, static artinya method ini dimiliki oleh class bukan object
+, kemudian void itu artinya tidak mengembalikan nilai, dan main merupakan nama method, String[] args merupakan nama parameter yang mana
+berisi array yang berisi teks yang dikirim saat program dijalankan.
+6. Kemudian System.out.println(); ini merupakan method println() untuk mencetak satu baris teks ke layar atau "Send this to the screen"
+7. {} merupakan awal dan juga akhir blok program
+8. Program komputer merupakan list dari perintah- perintah untuk dieksekusi oleh sebuah komputer
+9. instructions = statement dalam istilah bahasa pemrograman
+10. harus menggunakan tanda ; di setiap akhir program
+11. statement akan dieksekusi satu per satu dimulai dari atas ke bawah
+12. println()=> akan selalu menambahkan baris baru ke statement setelahnya
+13. gunakan double quotes ("") yang didalamnya berisi teks yang akan ditampilkan
+14. print()=> menampilkan hasil teks tanpa adanya baris baru
+15. case berbeda apabila ingin menampilkan angka, tidak menggunakan double quotes
+16. didalam println juga dapat melakukan operasi matematika (+, -, %, %, *)
+17. Kemudian comment di java, untuk single line comment menggunakan // dan untuk multiple line comment menggunakan /* */
+Java variables
+18. terdapat beberapa variable pada bahasa pemrograman java
+String => menyimpan teks
+int => menyimpan integers (whole numbers)
+float => menyimpan bilangan decimal
+char => menyimpan karakter
+boolean => menyimpan 2 state, benar atau salah
+
+cara mendeklarasikan variables;
+type variableName = value;
+
+19. variable dapat ditimpa apabila dideklarasikan nilai baru, tapi untuk mencegahnya kita dapat menggunakan keyword final (read only)
+20. Tanpa tanda kurung maka angka akan dianggap menjadi teks dan apabila menggunakan tanda + maka akan dilakukan concat bukan perhitungan
+21. Semua variable di java harus unik yang dinamakan identifiers dan biasakan untuk memberikan nama yang merepresentasikan fungsi yang akan dibuat
+Aturan penamaan:
+- bisa mengandung huruf, angka, garis bawah, dan tanda dolar
+- dimulai dengan huruf
+- dimulaid dengan huruf kecil, dan tidak boleh mengandung kata spasi
+- nama bisa juga diawali dengan tanda $ dan _
+- nama merupakan case sensitive
+- Kata yang dicadangkan (case int, String) tidak dapat digunakan untuk menjadi nama
+
+22. 

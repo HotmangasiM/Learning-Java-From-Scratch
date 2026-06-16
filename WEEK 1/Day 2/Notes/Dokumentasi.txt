@@ -1,0 +1,18 @@
+Java Number
+1. Primitive number dibagi menjadi 2 grup:
+    a. Integer types : byte, short, int, long
+    b. Floating point types : float dan double
+2. 
+byte: menyimpan angka bulat dari -127  sampai dengan 127, bisa berfungsi untuk menggantikan int apabila nilainya sudah pasti di rentang tsb, berguna untuk menghemat memori
+shorts: menyimpan data dari -32768 to 32767
+int : menyimpan angka dari -2147483648 to 2147483647
+long: menyimpan angka dari -9223372036854775808 to 9223372036854775807, digunakan ketika angka lebih besar dari kapasitas integer
+float: digunakan apabila memiliki kebutuhan untuk angka desimal, dan akhiri dengan menggunakan tanda "f" menandakan angkanya float
+double: sama case dengan float dan diakhiri dengan huruf "d" untuk menandakan bahwa itu adalah double
+3. Keakuratan antara float dan juga double, untuk float memiliki presisi 6-7 digit dibelakang koma sedangkan untuk double hingga 16 digit dibelakang koma
+Tipe data boolean
+4. boolean data type hanya memiliki 2 nilai yaitu benar dan salah
+Tipe data karakter
+5. char : digunakan untuk menyimpan karakter tunggal, didalam kutip 1 misalnya 'A' dan 'c'
+Tipe data string
+String: digunakan untuk menyimpan urutan karakter (text) dan didalam kutip 2
