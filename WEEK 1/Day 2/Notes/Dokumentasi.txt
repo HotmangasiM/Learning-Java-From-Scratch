@@ -16,3 +16,35 @@ Tipe data karakter
 5. char : digunakan untuk menyimpan karakter tunggal, didalam kutip 1 misalnya 'A' dan 'c'
 Tipe data string
 String: digunakan untuk menyimpan urutan karakter (text) dan didalam kutip 2
+
+Tipe data non-primitif di Java
+6. tipe data non-primitif dinamakan tipe reference dikarenakan tidak menyimpan data secara langsung, tetapi menyimpan referensi (alamat) ke sebuah objek di memori
+7. tipe primitif data didefenisikan langsung di bahasa sedangkan tipe non itu dibuat oleh programmer atau library
+8. non-primitif digunakan untuk melakukan operasi yang tipe data primitif tidak dapat lakukan
+9. primitif dimulai dari lowecase sedangkan untuk tipe data non-primitif dimulai menggunaakn uppercase
+10. primitif itu selalu memiliki nilai, sedangkan non-primitif itu bisa menampung null
+
+Java var method
+11. Keyword var memungkinkan compiler untuk secara otomatis mendeteksi tipe suatu variable berdasarkan nilai yang kita berikan
+12. var akan bekerja ketika kita assign nilai, sebaliknya akan error ketika tidak di assign sebuah nilai
+
+
+Java Type Casting
+Tipe casting di java ada 2:
+13. Widening casting : byte -> short -> char -> int -> long -> float -> double (dari yang paling kecil ke yang paling besar)
+14. Narrowing casting : double -> float -> long -> int -> char -> short -> byte (dari yang paling besar ke yang paling kecil) dan dimulai dengan tanda ()
+
+Java Operators
+15. Operators digunakan untuk melakukan operasi variables dan juga values
+- addition
+- substraction
+- multiplication
+- division
+- modulus
+- increment
+- decrement
+
+16. assigment operator menggunakan tanda sama dengan (=)
+17. addition assigment menggunakant tanda (+=)
+18. Operator perbandingan
+untuk nilai yang dihasilkan hanya ada 2 yaitu true dan juga false dengan menggunakan operator <,>, ==, !=, <=, >=, 
