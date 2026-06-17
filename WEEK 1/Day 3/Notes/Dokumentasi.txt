@@ -1,0 +1,75 @@
+Java logika operator
+1. hanya memiliki 2 nilai yaitu true dan false
+&& = mengembalikan nilai true apabila kedua statement adalah benar
+|| = mengembalikan nilai true apabila salah satu statement adalah benar
+! = Membalikkan nilai, true menjadi false dan juga sebaliknya
+
+Prioritas urutan eksekusi
+1. java memiliki urutan eksekusi operator dimulai dari tanda 
+- ( ) : parentheses
+- *, /, % : Multiplication, Division, Modulus
+- +, -, : Addition, Substraction
+- <, >, <=, >= : Comparison
+- ==, !=, : Equality
+- && : logical AND
+- || : logical OR
+- = : assigment
+
+Java Strings
+- Variabel yang diapit dengan tanda kutip 2 ("")
+- Dikarenakan string adalah sebuah objek maka string memiliki method2 yang bisa melakukan operasi tertentu
+cth: 
+.length-> untuk mendapatkan value length dari sebuah string
+.toUpperCase() -> untuk membuat string menjadi uppercase letters
+.toLowerCase() -> untuk membuat string menjadi lowecase letters
+.indexOf() -> digunakan untuk mengembalikan index posisi dari string yang didefenisikan (teks)
+.charAt() -> method yang digunakan untuk mengakses indeks posisi sebuah karakter
+.equals() -> digunakan untuk membandingkan dua strings
+.trim() -> digunakan untuk menghilangkan spasi di depan dan belakang string
+
+String Concatenation
+- menggunakan tanda + untuk penggabungan string
+- bisa melakukan Concatenation juga antara teks dan juga angka
+- bisa juga menggunakan method concat-(): untuk concat string
+- WARNING!!! tanda + pada string merupakan concat dan tanda + pada bilangan adalah operator
+
+String special karakter
+- menggunakan escape karakter \
+- \' -> ' -> single quote
+- \" -> " -> double quote
+- \\ -> \ -> backslash
+
+Other:
+- \n -> new line
+- \t -> new tab
+- \b -> backspace
+- \r -> Carriage return
+- \f -> Form Feed 
+
+Java Math
+- Method- method yang digunakan untuk melakukan operasi matematika
+
+-Math.max(x,y) : mendapatkan nilai tertinggi antara x dan y
+-Math.min(x,y) : mendapatkan nilai terendah antara x dan y
+-Math.sqrt(x) : mendapatkan nilai akar dari x
+-Math.abs(x) : mendapatkan nilai absolute dari x
+-Math.pow(x,y) : mendapatkan pangkat yang dihasilkan dari x sebanyak y(multiplication)
+Rounding Method
+- Math.round(x) : pembulatan ke int terdekat
+- Math.ceil(x) : pembulatan ke atas 
+- Math.floor(x) : pembulatan ke atas
+
+- Math.random() : membuat bilangan random tetapi menghasilkan double, apabila ingin mendapatkan int harus di casting terlebih dahulu
+
+Java Booleans
+-  Hanya memiliki 2 nilai yaitu true dan false
+- menggunakan keyword boolean
+
+Java if ... else
+- java conditions dan if statement 
+- setiap conditions membutuhkan condisi yaitu false dan juga true (boolean)
+- if apabila condition is true, else apabila kondisi salah, else if apabila ada kondisi lain, apabila kondisi pertama false dan switch apabila memiliki banyak alternative blok untuk code 
+
+
+
+
