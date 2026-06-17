@@ -77,9 +77,83 @@ public class Runner {
         //     System.out.println("It\'s rain, take your umbrella!!!");
         // }
 
-        int time = 20;
-        String result = (time < 18) ? "Good day" : "Good evening";
-        System.out.println(result);
+        // Ternary
+        // int time = 20;
+        // String result = (time < 18) ? "Good day" : "Good evening";
+        // System.out.println(result);
+
+        // Nested Ternary
+        // int time = 22;
+        // String message = (time < 12) ? "Good morning"
+        //                : (time < 18) ? "Good afternoon"
+        //                : "Good Evening";
+        // System.out.println(message);
+
+        // int time = 20;
+        // String result = (time < 18) ? "Good day" : "Good Evening";
+        // System.out.println(result);
+
+        // Nested if
+        // int age = 20;
+        // boolean isCitizen = true;
+
+        // if (age >= 18)
+        // {
+        //     System.out.println("Old enough to vote");
+        //     if(isCitizen)
+        //     {
+        //         System.out.println("And you are citizen, so you can vote!");
+        //     } else {
+        //         System.out.println("But you must be citizens to vote");
+        //     }
+        // } else {
+        //     System.out.println("Not old enough to vote");
+        // }
+
+        // Java switch
+        // int day = 4;
+        // switch (day) {
+        //     case 1:
+        //         System.out.println("Monday");
+        //         break;
+        //     case 2:
+        //         System.out.println("Tuesday");
+        //         break;
+        //     case 3:
+        //         System.out.println("Wednesday");
+        //         break;
+        //     case 4:
+        //         System.out.println("Thursday");
+        //         break;
+        //     case 5:
+        //         System.out.println("Friday");
+        //         break;
+        //     case 6:
+        //         System.out.println("Saturday");
+        //         break;
+        //     case 7:
+        //         System.out.println("Sunday");
+        //         break;
+        //     default:
+        //         System.out.println("Not a valid day");
+        // }
+
+        //Real case swith
+        int menu = 2;
+
+        switch (menu) {
+            case 1:
+                System.out.println("Cek saldo");
+                break;
+            case 2:
+                System.out.println("Transfer");
+                break;
+            case 3:
+                System.out.println("tarik Tunai");
+                break;
+            default:
+                throw new AssertionError();
+        }
 
     }
 }

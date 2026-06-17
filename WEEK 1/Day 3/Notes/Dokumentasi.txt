@@ -70,6 +70,59 @@ Java if ... else
 - setiap conditions membutuhkan condisi yaitu false dan juga true (boolean)
 - if apabila condition is true, else apabila kondisi salah, else if apabila ada kondisi lain, apabila kondisi pertama false dan switch apabila memiliki banyak alternative blok untuk code 
 
+Java Shorthand (Ternary)
+- variable = condition ? expressionTrue : expressionFalse;
+- dapat juga menggunakan ternary operation di dalam System.out.println
+- nested ternary (ternary bersarang): dapat membuat 2 output, tetapi membuat kode menjadi lebih sulit untuk dibaca
+
+Nested if
+- if dalam if yaitu mengecek kondisi jika kondisi lainnya adalah true
+
+Java switch
+- Terdapat juga alternatif lain untuk pengecekan pada java dengan menggunakan switch
+- berfungsi ketika kita ingin membandingkan nilai satu variabel dengan banyak kemungkinan nilai
+switch (expression):
+    case 1:
+            statement
+            break(stop eksekusi);
+    default(else):
+            statement
+- default akan dijalankan apabila tidak ada case yang cocok
+
+
+Java While Loop
+- Loop digunakan untuk mengulang pekerjaan yang sama berkali-kali tanpa menulis kode berulang
+- while loop sintaks
+while(condition){
+    // kode yang diulang
+}
+
+Java Do-While Loop
+- merupakan varian dari while loop dan memiliki perbedaan yaitu sudah dilakukan eksekusi minimal sekali
+
+- Java For Loop
+- ketika mengetahui berapa kali perulangan akan dilakukan maka bisa menggunakan perulangan for
+
+for(statement 1; statement 2; statement 3){
+    // kode blok
+}
+statement 1: dieksekusi sekali, sebelum eksekusi blok kode
+statement 2: defines the condition the block code
+statement 3: dieksekusi setiap kali setelah blok code dieksekusi
+
+Java Nested Loops
+- memungkinkan untuk melakukan loop di dalam loop
+
+Java For Each
+- perulangan yang digunakan untuk mengambil nilai satu per satu dari isi dari sebuah kumpulan data (Aray dan Collection)
+Sintaks:
+for(type variableName: arrayName){
+    kode yang akan dieksekusi
+}
+
+
+
+
 
 
 
