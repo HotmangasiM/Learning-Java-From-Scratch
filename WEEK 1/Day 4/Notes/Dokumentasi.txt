@@ -25,3 +25,22 @@ KAPAN PENGGUNAAN
 Multidimensional Array
 - array di dalam array yang disimpan pada sebuah table dengan baris dan juga kolom
 - array[row][column]
+
+Java Method
+-Method merupakan sekumpulan code yang diberi nama dan dapat dipanggil kapan saja
+public class Main{
+    static void myMethod(){
+        // code to be executed
+    }
+}
+penjelelasan:
+myMethod() merupakan nama dari method
+static merupakan method ini merupakan miliki kelas Main dan bukan objek dari kelas Main
+void artinya method ini tidak mengembalikan sebuah nilai
+
+
+// Method with parameter
+- Informasi dapat dikirimkan ke method sebagai parameter, dan parameter ini digunakan sebagai variabel
+- Parameter ditentukan setelah nama method, di dalam tanda kurung, bisa memiliki banyak parameter, hanya dipisah menggunakan tanda koma
+
+
