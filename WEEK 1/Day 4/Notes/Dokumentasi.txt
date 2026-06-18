@@ -1,0 +1,27 @@
+Java Break and Continue;
+- selain pada witch break digunakan juga pada loop yang berfungsi untuk keluar dari loop
+- continue juga memiliki ciri yang sama namun dengan pengertian menghentikan satu iterasi dengan kondisi tertentu, dan melanjutkan dengan iterasi loop berikutnya
+
+Java Array
+- Array digunakan untuk menyimpan beberapa nilai dalam satu variable, daripada mendeklarasikannya satu per satu
+- String[] cars untuk contohnya
+- setiap lokasi nilai dapat diakses menggunakan indeks, dan pada java indeks dimulai dari angka 0
+- untuk mengetahui berapa banyak elemen yang dimiliki sebuah array dapat menggunakan .length
+- kita juga membuat array dengan menentukan ukurannya dengan menggunakan new. itu akan membuat array kosong
+dengan jumlah ruang tertentu yang bisa kita isikan
+- akan tetapi ketika sudah mengetahui nilainya maka bisa langsung tanpa menggunakan "new" dan keduanya sama
+
+Loop Through Array
+- Kita dapat melakukan perulangan elemen-elemen array dengan menggunakan loop for, dan menggunakan properti length untuk menentukan seberapa kali loop harus dijalankan
+Loop Through Array using For Each
+- for(type variable: arrayname){
+    // block of code
+}
+- tanda : dibaca sebagai in, kemudian bisa membaca loop dengan "untuk setiap variable pada array"
+
+KAPAN PENGGUNAAN
+- penggunaan for dilakukan ketika ingin mendapatkan position(index) dari setiap elemen, bisa menggunakan loop for, sedangkan apabila hanya ingin membaca nilai (read) tanpa posisi bisa menggunakan for each
+
+Multidimensional Array
+- array di dalam array yang disimpan pada sebuah table dengan baris dan juga kolom
+- array[row][column]
