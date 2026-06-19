@@ -43,4 +43,18 @@ void artinya method ini tidak mengembalikan sebuah nilai
 - Informasi dapat dikirimkan ke method sebagai parameter, dan parameter ini digunakan sebagai variabel
 - Parameter ditentukan setelah nama method, di dalam tanda kurung, bisa memiliki banyak parameter, hanya dipisah menggunakan tanda koma
 
+// Java Return
+- void digunakana apabila sebuah method tidak mengembalikan sebuah nilai sedangkan 
+- apabila kita ingin sebuah method mengembalikan sebuah nilai maka harus menggunakan return 
+
+// Method Overloading
+- di java kita dapat membuat method yang memiliki nilai yang sama dengan parameter yang berbeda
+
+// Java Scope
+- variable dapat diakses di tempat dimana mereka dibuat
+
+// Java Rekursi
+-- Rekursi merupakan method yang digunakan untuk memanggil dirinya sendiri. 
+-- Setiap rekursi memiliki kondisi berhenti, apabila tidak maka program akan terus berjalan dan kemudian error
+itulah kenapa adanya halting condition atau base case
 
