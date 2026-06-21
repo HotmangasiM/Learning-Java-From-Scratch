@@ -1,0 +1,36 @@
+Java OOP (Object Oriented Programming)
+- procedural programming itu merupakan pembuatan prosedur atau method untuk melakukan operasi pada data
+sedangkan untuk oop itu tentang membuat objek yang berisi data dan juga methods
+- kelebihan oop
+1. lebih cepat dan lebih mudah untuk dieksekusi
+2. menyediakan stuktur program yang jelas
+3. OOP membantu java untuk prinsip DRY(Don't Repeat Yourself), memudahkan untuk maintain, diubah dan debug
+4. dapat digunakan kembali
+
+Java Class dan Object
+
+Class dan objek merupakan aspek utama dalam oop 
+- jadi class merupakan template untuk object dan object merupakan instance atau contoh dari class
+- menggunakan banyak objek
+- menggunakan banyak class
+
+Java Clas atribute
+- pada java variable yang dideklarasikan didalam sebuah class dinamakan attributes;
+- selain namanya attributes, bisa juga dinamakan fields
+- kita dapat mengakses attibutes dengan membuat objek dari class, menggunakan sintaks dot (.)
+- kita dapat melakukan override nilai sebuah attributes, apabila tidak ingin, maka kita bisa menggunakan keyword final
+- keyword final digunakan untuk value yang selalu sama (tidak berubah) misalnya nilai PI 3.14...
+- Multiple Attributes : kita dapat membuat banyak attributes sebanyak yang kita perlukan
+
+// Java Class Method
+- method dideklarasikan didalam kelas, dan method digunakan untuk operasi 
+- Bisa juga untuk mengakses method menggunakan object
+- PASTIKAN!!!: untuk memanggil method di Java gunakan tanda kurung(), diikuti dengan titik koma (;)
+ 
+// Java Constructor
+- merupakan method spesial yang digunakan untuk inisialisasi object
+- Constructor dipanggil ketika objek dalam sebuah class dibuat misal : new Cat()
+- Constuctor harus memiliki nama yang sama dengan classnya dan tidak memiliki return type;
+
+// Constructor dengan parameter
+- Constructor dengan parameter penting dikarenakan setiap objek bisa memiliki data yang berbeda

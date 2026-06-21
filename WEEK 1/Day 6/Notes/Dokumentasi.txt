@@ -1,0 +1,25 @@
+// JAVA THIS
+- this merupakan referensi ke object yang sedang berjalan saat ini (current object)
+tahap awal:
+this digunakan untuk membedakan antara field (attribute class) dan parameter
+
+JAVA MODIFIERS
+
+Modifiers merupakan tingkat akses untuk class, attribute, metode dan juga constructor dan dibagi menjadi 2 yaitu access modifier dan Non-Access Modifier
+
+
+public = dapat diakses oleh class manapun
+private = paling tertutup, hanya bisa diakses oleh class yang mendeklarasikan modifier itu
+protected = bisa diakses dalam package yang sama 
+default = hanya bisa diakses oleh class dalam package yang sama
+
+untuk urutannya
+private > default > protected > public
+
+Non Acces Modifier
+- final = Nilai yang tidak boleh diubah lagi misal phi = 3.14...
+- static = milik class bukan object
+- abtract = belum lengkap, misalnya animal yang memaksa turunan membuat implementasi
+- transient = dipakai saat serialization
+- synchronized = dipakais saat multithereading agar hanya satu thread yang mengakses method
+- volatile = dipakai untuk sinkronisasi memori
