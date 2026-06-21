@@ -1,0 +1,10 @@
+JAVA ENCAPSULATION
+
+- encapsulation : data tidak boleh diakses langsung, harus lewat pintu resmi
+- menyediakan yang namanya getter dan setter untuk mengakses attributes yang bersifat private
+- get untuk mengembalikan data dan set untuk mengatur nilai
+Benefit menggunaka encapsulation:
+- lebih baik dalam mengontrol attributes class dan method
+- attributes class dapat read-only(apabila menggunakan get) atau juga write-only (apabila menggunakan set)
+- Flexible : programmer dapat mengubah satu bagian code tanpa berpengaruh ke program lainnya 
+
