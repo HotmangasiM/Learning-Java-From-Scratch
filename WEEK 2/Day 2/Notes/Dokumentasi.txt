@@ -1,0 +1,8 @@
+JAVA SUPER KEYWORD
+
+- kalau misalnya super() itu berarti parent class
+- dan this merupakan objek class saya sendiri
+- super juga dapat digunakan untuk memanggil constructor parent
+
+PERHATIKAN
+- java menambahkan default super() apabila tidak di parent class ada constructor tanpa paramater, tetapi apabila pramater ada maka super() tidak akan dibuat

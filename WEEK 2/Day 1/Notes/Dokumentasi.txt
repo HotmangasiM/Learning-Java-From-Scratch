@@ -1,0 +1,13 @@
+JAVA INHERITANCE
+
+Java Inheritance (Subclass dan Superclass)
+
+Inheritance = pewarisan sifat dari class lain
+- Ketika kita ingin agar sebuah class tidak dapat diwarisi oleh class lain maka harus membuat keyword final
+- modifier private tidak dapat diwarisi secara langsung, yang bisa digunakan itu yaitu protected dan juga public
+- apabila menggunakan constructor bisa menggunakan keyword super(param1, param2) dari superclass (parent)
+
+JAVA POLYMORPHISM
+polymorphism artinya memiliki banyak bentuk 
+- ketika sebuah parent class memiliki method yang di extends oleh child class dan memiliki isi yang berbeda maka yang terjadi method override(nama sama, parameter sama, tapi return berbeda)
+- 

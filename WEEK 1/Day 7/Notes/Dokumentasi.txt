@@ -8,3 +8,14 @@ Benefit menggunaka encapsulation:
 - attributes class dapat read-only(apabila menggunakan get) atau juga write-only (apabila menggunakan set)
 - Flexible : programmer dapat mengubah satu bagian code tanpa berpengaruh ke program lainnya 
 
+JAVA PACKAGES
+- package itu mirip seperti folder atau direktori
+- berfungsi untuk mengelompokkan class
+- dibagi menjadi 2 kategori (Built-in packages : bawaan dari Java API dan User-defines packages: custome oleh kita sendiri)
+- Built-in packages : misalnya class yang sudah disediakan oleh Java seperti Scanner yang berada di package Util yang mana harus kita import dulu pada bagian atas menggunakan keyword "import java.util.Scanner;"
+java
+    util
+        Scanner
+-  apabila ingin mengimport keseluruhan class dalam sebuah packages dapat langsung menggukan import java.util.*;
+- apabila package custome kita bisa lakukan dengan membuat package {custome_name};
+dan cara memanggilnya menggunakan import custome_name.Employee misalnya
