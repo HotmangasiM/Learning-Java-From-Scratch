@@ -28,3 +28,14 @@ JAVA WRITE FILE
 - ada beberapa cara yang digunakan untuk membuat file yaitu FileWrite untuk basic text
 - BufferedWriter untuk text yang besar, dikarenakan lebih cepat dan mempunyai fitur-fitur yang berguna
 - FileOutputStream untuk binary data (images, audio, PDF)
+
+JAVA READ FILE
+Untuk membaca sebuah file menggunakan java dapat menggunakan method scanner dari sebuah object file yang sudah dibuat
+Scanner -> untuk teks sederhana
+BufferedReader -> untuk file text besar
+FileInputStream -> File binary
+
+DELETE FILE
+untuk menghapus file pada java menggunakan keyword delete();
+selain untuk menghapus yang namanya file, kita juga dapat menghapus yang namanya folder 
+
