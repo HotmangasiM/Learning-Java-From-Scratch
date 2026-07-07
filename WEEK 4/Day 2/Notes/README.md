@@ -90,5 +90,43 @@ Perbedaan antara List dan juga Set
 - tidak menjamin urutan
 - tidak melalui indeks untuk mengakses
 
+JAVA HASH SET
+merupakan kumpulan elemen yang isinya unik (tidak dapat duplikat)
+
+keyword HashSet<String> cars = new HashSet<String>();
+beberapa method yang dapat digunakan yaitu add(), contains(), remove()
+
+kita juga dapat menggunakan keyword var 
+BEFORE:
+HashSet<String> cars = new HashSet<String>();
+AFTER
+var cars = new HashSet<String>();
+
+Sama seperti List, List juga dapat dideklarasikan sebagai objek yang menampung HashSet
+
+JAVA TREE SET
+merupakan koleksi yang menampung nilai yang unik dan menghasilkan value dengan format terurut
+
+Treeset<String> cars = new TreeSet<>();
+beberapa method yang digunakan yaitu add() untuk menambahkan elemen, contains() untuk mengecek sebuah elemen ada atau tidak dalam sebuah koleksi, remove() untuk menghapus sebuah elemen, clear() untuk menghapus semua elemen, size() untuk mendapatkan ukuran dari sebuah koleksi, 
+
+sama seperti HashSet, kita dapat menggunanakan deklarasi variable var, kemudian bisa menggunakan perulangan
+
+JAVA LINKED HASH SET
+LinkedHashSet -> menyimpan nilai yang unik dan mempertahankan urutan sesuai dengan yang kita insert
+
+LinkedHashSet<String> cars = new LinkedHashSet<>();
+
+untuk properti sama seperti List dan juga Set yang lain (HashSet, dan TreeSet)
+
+perbedaan dengan HashSet
+HashSet: Tidak berurut, tidak dapat duplikat, dan lebih cepat
+LinkedHashSet : Urutan sesuai dengan bagaimana di insert, tidak dapat duplikat, dan lebih lambat dikarenakan urutan 
+
+dapat juga menggunakan keyword var dan juga Set untuk deklarasi 
+
+
+
+
 
 
