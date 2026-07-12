@@ -125,6 +125,77 @@ LinkedHashSet : Urutan sesuai dengan bagaimana di insert, tidak dapat duplikat, 
 
 dapat juga menggunakan keyword var dan juga Set untuk deklarasi 
 
+JAVA MAP
+merupakan bagian dari Java Collection Framework yang digunakan untuk menyimpan pasangan key-value
+setiap key harus unik, tetapi values dapat duplikat
+
+Class yang biasa digunakan yaitu:
+hashMap : cepat tetapi tidak berurut
+TreeMap : diurutkan berdasarkan key
+LinkedHashMap : diurutkan berdasarkan penambahan (add)
+
+beberapa method yang sering digunakan:
+put() : menambahkan atau edit pasangan key-value
+get() : mengembalikan nilai dari sebuah key
+remove() : menghapus sebuah key dan juga value
+containsKey() : check apakah sebuah map memiliki key tertentu
+keySet() : mengembalikan kumpulan dari key
+
+![alt text](image.png)
+
+
+JAVA HASH MAP
+HashMap menyimpan pasangan key-value dimana setiap key memiliki nilai yang spesifik
+
+HashMap dapat menyimpan berbagai kombinasi tipe data :
+String keys and Integer Values
+String keys and String values
+
+Kita dapat menggunakan keyword var juga untuk HashMap
+kemudian dapat juga menggunakan Map untuk variable
+
+
+JAVA TREEMAP
+- merupakan koleksi untuk menyimpan pasangan key/values yang diurutkan berdasarkan kunci
+
+TreeMap<String, String> capitalCities = new TreeMap<>();
+
+untuk property sama dengan yang ada di HashMap
+
+PERBEDAAN antara HashMap dan TreeMap
+TreeMap : diurutkan berdasarkan keys, tidak dapat berisi null keys, lebih lambat karena memperhatiakn urutan key
+HashMap : Tidak ada urutan, mengizinkan memberikan nilai null untuk key, dan lebih cepat dikarenakan tidak ada sorting
+
+bisa menggunaakn keyword var juga dan deklarasi menggunakan Map
+
+JAVA LINKED HASH MAP
+LinkedHasMap menyimpan pasangan key-value dan mempertahakan urutan sebagaimana awal diinsert
+
+LinkedHashmap<String, String> capitalCities = new LinkedHashMap<>();
+
+sama dengan Map yang lain bisa deklarasi menggunakan keyword var dan juga interface Map
+
+JAVA ITERATOR
+Iterate : Berjalan satu per satu 
+
+Perbedaan Loop dengan Iterator 
+
+Iterator dapat dengan mudah mengubah koleksi saat loop sedang berjalan sedangkan untuk loop tidak, karena loop hanya membaca 
+
+bisa menggunakan keyword var untuk deklarasi
+
+
+JAVA ALGORITHMS
+
+Algoritma merupakan langkah-langkah dalam menyelesaikan sebuah masalah
+
+Beberapa method yang sering digunakan yaitu:
+Collections.max() menemukan value tertinggi
+Collections.min() menemukan value terendah
+Collections.shuffle() : mengacak random elemen
+Collections.frequency() : menghitung berapa kali sebuah elemen muncul
+Collections.swap() : menukar 2 elemen di dalam list
+
 
 
 
