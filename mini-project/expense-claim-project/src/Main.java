@@ -28,6 +28,8 @@ public class Main {
                 System.out.println("4. Submit Claim");
                 System.out.println("5. Approve Claim");
                 System.out.println("6. Reject Claim");
+                System.out.println("7. Cancel Claim");
+                System.out.println("8. Edit Claim");
                 System.out.println("0. Exit");
 
                 selectedMenu = scanner.nextInt();
@@ -225,17 +227,114 @@ public class Main {
                             if(rejected){
                                 System.out.println("Claim "+ foundClaim.getClaimId() + " Rejected successfully");
                             }else {
-                                System.out.println("Claim  "+ foundClaim.getClaimId() + " cannot be submmited because its curent status is "+ foundClaim.getStatus());
+                                System.out.println("Claim  "+ foundClaim.getClaimId() + " cannot be rejcted because its curent status is "+ foundClaim.getStatus());
                             }
                             foundClaim.displayClaim();
                         } else {
-                            System.out.println("There is no claim");
+                            System.out.println("Claim with ID "+ searchedClaimId + " was not found.");
                         }
 
 
                         break;
                     }
+                    case 7: {
+                        System.out.println("===== CANCEL CLAIM =====");
+                        System.out.println("Input Claim ID");
+                        String searchedClaimId = scanner.nextLine().trim();
 
+                        // Inisialisasi untuk variabel penampung
+                        ExpenseClaim foundClaim = null;
+                        for(ExpenseClaim claim : claims){
+                            if(claim.getClaimId().equalsIgnoreCase(searchedClaimId)){
+                                foundClaim = claim;
+                                break;
+                            }
+                        }
+
+                        if(foundClaim != null){
+                            boolean cancelled = foundClaim.cancelClaim();
+                            if(cancelled){
+                                System.out.println("Claim: "+ foundClaim.getClaimId() +" cancelled successfully");
+                                foundClaim.displayClaim();
+                            } else {
+                                System.out.println("Claim: "+ foundClaim.getClaimId() + " cannot be cancelled because status is " +foundClaim.getStatus());
+                            }
+                        } else {
+                            System.out.println("Claim with ID "+ searchedClaimId + " was not found");
+                        }
+                        break;
+                    }
+                    case 8:{
+                        System.out.println("===== EDIT CLAIM =====");
+                        System.out.println("Input Claim ID");
+                        String searchedClaimId = scanner.nextLine().trim();
+
+                        // Inisialisasi untuk variabel penampung
+                        ExpenseClaim foundClaim = null;
+                        for(ExpenseClaim claim : claims){
+                            if(claim.getClaimId().equalsIgnoreCase(searchedClaimId)){
+                                foundClaim = claim;
+                                break;
+                            }
+                        }
+                        if(foundClaim != null){
+
+                            System.out.println("Input New Category");
+                            int categoryChoice = scanner.nextInt();
+                            scanner.nextLine();
+
+                            ClaimCategory newCategory;
+
+                            switch (categoryChoice) {
+                                case 1:
+                                    newCategory = ClaimCategory.TRANSPORTATION;
+                                    break;
+                                case 2:
+                                    newCategory = ClaimCategory.MEAL;
+                                    break;
+                                case 3:
+                                    newCategory = ClaimCategory.ACCOMODATION;
+                                    break;
+                                case 4:
+                                    newCategory = ClaimCategory.OFFICE_SUPPLY;
+                                    break;
+                                case 5:
+                                    newCategory = ClaimCategory.MEDICAL;
+                                    break;
+                                case 6:
+                                    newCategory = ClaimCategory.INTERNET;
+                                    break;
+                                case 7:
+                                    newCategory = ClaimCategory.OTHER;
+                                    break;
+                                default:
+                                    newCategory = ClaimCategory.OTHER;
+                                    // scanner.close();
+                                    System.out.println("Invalid Category. Category set to Other");
+                            }
+
+                            System.out.println("Input New Amount");
+                            double newAmount = scanner.nextDouble();
+                            scanner.nextLine();
+
+                            System.out.println("Input New Description");
+                            String newDescription = scanner.nextLine().trim();
+
+                            if(newAmount <= 0){
+                                System.out.println("Amount must be greater than zero");
+                            }else if(newDescription.isEmpty()){
+                                System.out.println("Description cannot be empty");
+                            } else {
+                                boolean edited = foundClaim.editClaim(newCategory, newAmount, newDescription);
+                                if(edited){
+                                    System.out.println("Claim with ID "+ foundClaim.getClaimId() +" updated successfully");
+                                }else {
+                                    System.out.println("Claim with ID" + foundClaim.getClaimId() + " cannot be edited because its current status is "+ foundClaim.getStatus());
+                                }
+                            }
+                        }
+                        break;
+                    }
                     case 0:{
                                 // menuCategory = MenuCategory.EXIT;
                                 System.out.println("Logout successfully");

@@ -15,6 +15,8 @@ public class ExpenseClaim {
     private LocalDateTime createdAt;
     private LocalDateTime reviewedAt;
     private String rejectionReason;
+    private LocalDateTime cancelledAt;
+    private LocalDateTime updatedAt;
     // Ini merupakan constructor yang akan dipanggil ketika menjalankan new ExpenseClaim(...)
     public ExpenseClaim(
         String claimId,
@@ -31,7 +33,6 @@ public class ExpenseClaim {
         // Default value untuk status yaitu DRAFT dan tanggal pembuatan yaitu saat ini
         this.status = ClaimStatus.DRAFT;
         this.createdAt = LocalDateTime.now();
-      //   this.reviewedAt = LocalDateTime.now();
      }
      // getter dibuat untuk mengambil nilai attribute private
      public String getClaimId(){
@@ -69,9 +70,17 @@ public class ExpenseClaim {
      public String getRejectionReason(){
       return rejectionReason;
      }
+
+     public LocalDateTime getCancelledAt(){
+      return cancelledAt;
+     }
+
+     public LocalDateTime getUpdatedAt(){
+      return updatedAt;
+     }
      // berfungsi untuk menampilkan informasi claim
      public void displayClaim(){
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyy HH:mm:ss");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 
         System.out.println();
         System.out.println("===== EXPENSE CLAIM DETAIL =====");
@@ -88,7 +97,14 @@ public class ExpenseClaim {
         if(rejectionReason != null){
          System.out.println("Rejection Reason: "+ rejectionReason);
         }
-        System.out.println("Claim created by console application");
+
+        if(cancelledAt != null){
+         System.out.println("Cancelled At : "+ cancelledAt.format(formatter));
+        }
+
+        if(updatedAt != null){
+         System.out.println("Updated At: "+ updatedAt.format(formatter));
+        }
      }
 
      public boolean submitClaim(){
@@ -113,15 +129,45 @@ public class ExpenseClaim {
      }
 
      public boolean rejectClaim(String reason){
-         if(status == ClaimStatus.SUBMITTED){
-            status = ClaimStatus.REJECTED;
-            if(reason.trim().isEmpty()){
-               rejectionReason = reason;
-            }
-            reviewedAt = LocalDateTime.now();
-            return true;
-         } else {
+         if(status != ClaimStatus.SUBMITTED){
             return false;
          }
+
+         if(reason == null || reason.trim().isEmpty()){
+            return false;
+         }
+         status = ClaimStatus.REJECTED;
+         rejectionReason = reason.trim();
+         reviewedAt = LocalDateTime.now();
+
+         return true;
+     }
+
+     public boolean cancelClaim(){
+      if(status == ClaimStatus.DRAFT || status == ClaimStatus.SUBMITTED){
+         status = ClaimStatus.CANCELLED;
+         cancelledAt = LocalDateTime.now();
+         return true;
+      } else {
+         return false;
+      }
+     }
+
+     public boolean editClaim(ClaimCategory newCategory, double newAmount, String newDescription){
+      if(status != ClaimStatus.DRAFT){
+         return false;
+      }
+      if(amount <= 0 ){
+         return false;
+      }
+      if(description == null || description.trim().isEmpty()){
+         return false;
+      }
+         // apabila kondisi Claim status adalah draft
+         category = newCategory;
+         amount = newAmount;
+         description = newDescription;
+         updatedAt = LocalDateTime.now();
+         return true;
      }
 }
