@@ -157,10 +157,10 @@ public class ExpenseClaim {
       if(status != ClaimStatus.DRAFT){
          return false;
       }
-      if(amount <= 0 ){
+      if(newAmount <= 0 ){
          return false;
       }
-      if(description == null || description.trim().isEmpty()){
+      if(newDescription == null || newDescription.trim().isEmpty()){
          return false;
       }
          // apabila kondisi Claim status adalah draft
@@ -170,4 +170,6 @@ public class ExpenseClaim {
          updatedAt = LocalDateTime.now();
          return true;
      }
+
+     
 }

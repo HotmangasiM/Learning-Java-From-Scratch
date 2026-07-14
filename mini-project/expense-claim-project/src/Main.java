@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 // Entry point 
@@ -13,6 +14,7 @@ public class Main {
         // ketika menu ditampilkan kembali
         ArrayList<ExpenseClaim> claims = new ArrayList<>();
         int selectedMenu;
+        int nextClaimNumber = 1;
         
         System.out.println("==========================");
         System.out.println("  HOTMANGASI EXPENSE CLAIM MANAGEMENT SYSTEM   ");
@@ -30,6 +32,8 @@ public class Main {
                 System.out.println("6. Reject Claim");
                 System.out.println("7. Cancel Claim");
                 System.out.println("8. Edit Claim");
+                System.out.println("9. Delete Claim");
+                System.out.println("10. Filter Claim by Status");
                 System.out.println("0. Exit");
 
                 selectedMenu = scanner.nextInt();
@@ -96,10 +100,9 @@ public class Main {
                             String description = scanner.nextLine();
                             
 
-                            String rawClaimId = "CLM-";
-                            int nextNumber = claims.size() + 1;
-                            String claimId = rawClaimId + String.format("%03d", nextNumber);
-
+                            // int nextNumber = claims.size() + 1;
+                            String claimId = "CLM-" + String.format("%03d", nextClaimNumber);
+                            nextClaimNumber++;
 
                             ExpenseClaim claim = new ExpenseClaim(
                                 claimId,
@@ -333,6 +336,100 @@ public class Main {
                                 }
                             }
                         }
+                        if((foundClaim == null)){
+                            System.out.println("Claim with ID "+ searchedClaimId + " was not found");
+                        }
+                        break;
+                    }
+                    case 9:{
+                        System.out.println("===== DELETE CLAIM =====");
+                        System.out.println("Input Claim ID");
+                        String searchedClaimId = scanner.nextLine().trim();
+                        ExpenseClaim foundClaim = null;
+
+                        for(ExpenseClaim claim: claims){
+                            if(claim.getClaimId().equalsIgnoreCase(searchedClaimId)){
+                                foundClaim = claim;
+                                break;
+                            }
+                        }
+                        if(foundClaim == null){
+                            System.out.println("Claim with ID "+ foundClaim.getClaimId() + " was not found");
+                        }
+
+                        if(foundClaim.getStatus() == ClaimStatus.DRAFT){
+                            System.out.println("Are you sure to delete this claim " + foundClaim.getClaimId()+ "? Y/N");
+                            String confirmation = scanner.nextLine().trim();
+                            if(confirmation.equalsIgnoreCase("Y")){
+                                Iterator<ExpenseClaim> iterator = claims.iterator();
+                                while(iterator.hasNext()){
+                                    ExpenseClaim claim = iterator.next();
+
+                                    if(claim.getClaimId().equalsIgnoreCase(searchedClaimId)){
+                                        iterator.remove();
+                                        break;
+                                    }
+                                }
+                                System.out.println("Success to delete claim");
+                            } else {
+                                System.out.println("Deleted Operation Cancelled");
+                            }
+                        } else {
+                            System.out.println("Claim with ID "+ foundClaim.getClaimId() + " cannot be deleted because status is "+ foundClaim.getStatus());
+                        }
+                        break;
+                    }
+                    case 10:{
+                         System.out.println("===== FILTER STATUS CLAIM =====");
+                         System.out.println("Insert the status");
+                         int statusChoice = scanner.nextInt();
+                         scanner.nextLine();
+                         int totalFound = 0;
+
+                         ClaimStatus selectedStatus = null;
+                         switch (statusChoice) {
+                             case 1:{
+                                selectedStatus = ClaimStatus.DRAFT;
+                                break;
+                             }
+                             case 2:{
+                                selectedStatus = ClaimStatus.SUBMITTED;
+                                break;
+                             }
+                             case 3:{
+                                selectedStatus = ClaimStatus.APPROVED;
+                                break;
+                             }
+                             case 4:{
+                                selectedStatus = ClaimStatus.REJECTED;
+                                break;
+                             }
+                             case 5:{
+                                selectedStatus = ClaimStatus.CANCELLED;
+                                break;
+                             }
+                             default:
+                                 System.out.println("Invalid status choice");
+                         }
+
+                         boolean claimFound = false;
+
+                         for(ExpenseClaim claim: claims){
+                            if(claim.getStatus() == selectedStatus){
+                                claim.displayClaim();
+                                claimFound = true;
+                                totalFound++;
+                            }
+                         }
+                         if(totalFound == 0){
+                            System.out.println("There is no match Claim");
+                         } else {
+                            System.out.println("Total found of claim is: "+ totalFound);
+                         }
+                         if(!claimFound){
+                            System.out.println("Nothing claim with that status");
+                         }
+
                         break;
                     }
                     case 0:{
