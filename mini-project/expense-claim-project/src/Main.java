@@ -12,17 +12,17 @@ public class Main {
 
         // ArrayList yang dibuat di luar loop agar data tidak hilang
         // ketika menu ditampilkan kembali
+        // Mmebuat variable array penampung untuk semua data yang diinsert
         ArrayList<ExpenseClaim> claims = new ArrayList<>();
+        // membuat variable menu yang dipilih oleh user
         int selectedMenu;
         int nextClaimNumber = 1;
-        
+        // Menampilkan tampilan awal menu
         System.out.println("==========================");
         System.out.println("  HOTMANGASI EXPENSE CLAIM MANAGEMENT SYSTEM   ");
         System.out.println("==========================");
         System.out.println();
             do { 
-                
-
                 System.out.println("Choose menu ");
                 System.out.println("1. Create Claim");
                 System.out.println("2. Show All Claims");
@@ -36,20 +36,23 @@ public class Main {
                 System.out.println("10. Filter Claim by Status");
                 System.out.println("11. Search Claim by Employee Name");
                 System.out.println("0. Exit");
-
+                // user memasukkan menu dengan pilihan integer
                 selectedMenu = scanner.nextInt();
                 scanner.nextLine();
 
                 // MenuCategory menuCategory;
+                // menu diubah berdasarkan kondisi yang sesuai
 
                 switch (selectedMenu) {
                     case 1:{
-                            // menuCategory = MenuCategory.CREATE_CLAIM;
+                            // Apabila user memilih menu 1 maka ditampilakn menu CREATE EXPENSE CLAIM
                             System.out.println("===== CREATE EXPENSE CLAIM =====");
+                            // User input employee name
                             System.out.println("Employee Name: ");
                             String employeeName = scanner.nextLine();
 
                             System.out.println();
+                            // Menampilkan list kategory yang tersedia
                             System.out.println("Choose Category: ");
                             System.out.println("1. Transportation");
                             System.out.println("2. Meal");
@@ -60,9 +63,10 @@ public class Main {
                             System.out.println("7. Other");
                             System.out.println("Category: ");
 
+                            // user input kategori 
                             int categoryChoice = scanner.nextInt();
                             scanner.nextLine();
-
+                            // membuat variable untuk menampung nilai kategori yang sudah di mapping dari inputan user
                             ClaimCategory selectedCategory;
 
                             switch (categoryChoice) {
@@ -92,19 +96,19 @@ public class Main {
                                     // scanner.close();
                                     System.out.println("Invalid Category. Category set to Other");
                             }
-
+                            // user input Amount
                             System.out.println("Amount: ");
                             double amount = scanner.nextDouble();
                             scanner.nextLine();
-
+                            // user input description
                             System.out.println("Description: ");
                             String description = scanner.nextLine();
                             
 
-                            // int nextNumber = claims.size() + 1;
+                            // menambahakan format untuk claim ID
                             String claimId = "CLM-" + String.format("%03d", nextClaimNumber);
                             nextClaimNumber++;
-
+                            // membuat data pertama sesuai inputan user dengan paramater, claimID, employeeName, selectedCategory, amount, description
                             ExpenseClaim claim = new ExpenseClaim(
                                 claimId,
                                 employeeName,
@@ -112,18 +116,22 @@ public class Main {
                                 amount,
                                 description
                             );
+                            // menambahkan satu per satu data yang di create ke dalam variabel array penampung
                             claims.add(claim);
 
                             System.out.println();
                             System.out.println("Claim successfully created");
+                            // menampilkan informasi mengenai data yang sudah di generate
                             claim.displayClaim();
                             break;
                         }
                         
                     case 2:
                         {
-                            // menuCategory = MenuCategory.SHOW_CLAIM;
+                            // apbila user memilih menu ke 2 akan menampilkan semua data 
                             System.out.println("===== SHOW CLAIM =====");
+                            // melakukan pengecekan apabila data kosong maka menampilkan tidak ada data
+                            // apabila ada maka menampilkan semua informasi data 
                             if(claims.isEmpty()){
                                 System.out.println("No expense claim data");
                             } else {
@@ -134,21 +142,24 @@ public class Main {
                             break;
                         }
                     case 3: {
-                        // Menu Show Claim Detail
+                        // user memasukkan nilai 3 maka akan menampilkan claim tertentu
                         System.out.println("===== SHOW CLAIM DETAIL =====");
+                        // user input claim-id yang ingin dicari
                         System.out.println("Input ClaimId: ");
                         String searchedClaimId = scanner.nextLine().trim();
 
-                        // Inisialisasi variable penampung
+                        // Inisialisasi variable penampung untuk data yang ditemukan
                         ExpenseClaim foundClaim = null;
-
+                        // dilakukan pengecekan semua data (claim) menggunakan looping untuk mengecek apakah ada data dengan id yang sesuai dengan inputa user
                         for(ExpenseClaim claim : claims){
                             if(claim.getClaimId().equalsIgnoreCase(searchedClaimId)){
+                                // ini hanya jika ada maka ditampung ke variable penampung data yang ditemukan
                                 foundClaim = claim;
                                 break;
                             }
                         }
-
+                        // dilakukan pengecekan hasil, apabila null maka data dengan id tersebut tidak ditemukan
+                        // sebaliknya apabila tidak null, maka data tersebut akan ditampilkan
                         if(foundClaim != null){
                             System.out.println("Claim Found");
                             foundClaim.displayClaim();
@@ -170,6 +181,8 @@ public class Main {
                             if(claim.getClaimId().equalsIgnoreCase(searchedClaimId)){
                                 foundClaim = claim;
                                 break;
+                            } else {
+                                System.out.println("There is no Claim with ID: "+ searchedClaimId);
                             }
                         }
 
@@ -177,10 +190,11 @@ public class Main {
                             boolean submitted = foundClaim.submitClaim();
                             if(submitted){
                                 System.out.println("Claim "+ foundClaim.getClaimId() + " submitted successfully");
+                                foundClaim.displayClaim();
+                            } else {
+                                System.out.println("Claim  "+ foundClaim.getClaimId() + " cannot be submmited because its curent status is "+ foundClaim.getStatus());
                             }
-                            foundClaim.displayClaim();
-                        } else {
-                            System.out.println("Claim  "+ foundClaim.getClaimId() + " cannot be submmited because its curent status is "+ foundClaim.getStatus());
+                            
                         }
                         break;
                     }
