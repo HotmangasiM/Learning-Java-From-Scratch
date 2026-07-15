@@ -34,6 +34,7 @@ public class Main {
                 System.out.println("8. Edit Claim");
                 System.out.println("9. Delete Claim");
                 System.out.println("10. Filter Claim by Status");
+                System.out.println("11. Search Claim by Employee Name");
                 System.out.println("0. Exit");
 
                 selectedMenu = scanner.nextInt();
@@ -430,6 +431,34 @@ public class Main {
                             System.out.println("Nothing claim with that status");
                          }
 
+                        break;
+                    }
+                    case 11: {
+                        System.out.println("===== SEARCH CLAIM BY EMPLOYEE NAME =====");
+                        if(claims.isEmpty()){
+                            System.out.println("No expense claim data.");
+                            break;
+                        }
+                        System.out.println("Insert Employee Name");
+                        String searchedEmpName = scanner.nextLine().trim();
+                        if(searchedEmpName.isEmpty()){
+                            System.out.println("Employee name cannot be empty");
+                            break;
+                        }
+                        
+                        int totalFound = 0;
+                        for(ExpenseClaim claim : claims){
+                            if(claim.getEmployeeName().toLowerCase().contains(searchedEmpName.toLowerCase())){
+                                claim.displayClaim();
+                                totalFound++;
+                            }
+                        }
+                        if(totalFound == 0){
+                            System.out.println("No claim found for emplotyee name: "+searchedEmpName);
+                        } else {
+                            System.out.println("Total claim founds: "+ totalFound);
+                        }
+                         
                         break;
                     }
                     case 0:{
