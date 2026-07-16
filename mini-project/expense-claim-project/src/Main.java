@@ -170,13 +170,16 @@ public class Main {
                         break;
                     }
                     case 4: {
+                        // user memasukkan inputan 4 dan akan dimapping untuk menu SUBMIT CLAIM
                         System.out.println("===== SUBMIT CLAIM =====");
                         System.out.println("Input Claim ID: ");
+                        // inputan claim Id yang akan dicari dari user
                         String searchedClaimId = scanner.nextLine().trim();
 
-                        // Inisialisasi variable penampung
+                        // Inisialisasi variable penampung untuk data yang ditemukan
                         ExpenseClaim foundClaim = null;
-
+                        // lakukan pengecekan semua data yang ada (looping) dan sesuaikan dengan parameter input claimID dari user
+                        // cocok masuk ke kondisi if dan apabila tidak cocok masuk ke kondisi else
                         for(ExpenseClaim claim : claims){
                             if(claim.getClaimId().equalsIgnoreCase(searchedClaimId)){
                                 foundClaim = claim;
@@ -185,8 +188,10 @@ public class Main {
                                 System.out.println("There is no Claim with ID: "+ searchedClaimId);
                             }
                         }
-
+                        // apabila data yang ditemukan tidak null maka masuk ke if dan tidak ada data masuk ke else
                         if(foundClaim != null){
+                            // panggil method untuk submit dan dapat balikan true atau false
+                            // true akan masuk ke if dan else akan masuk ke else 
                             boolean submitted = foundClaim.submitClaim();
                             if(submitted){
                                 System.out.println("Claim "+ foundClaim.getClaimId() + " submitted successfully");
@@ -195,30 +200,42 @@ public class Main {
                                 System.out.println("Claim  "+ foundClaim.getClaimId() + " cannot be submmited because its curent status is "+ foundClaim.getStatus());
                             }
                             
+                            
+                        } else {
+                            System.out.println("There is no claim data");
                         }
                         break;
                     }
                     case 5:{
+                        // apabila user memilih menu 5 maka akan menampilkan menu APPROVE CLAIM
                         System.out.println("===== APPROVE CLAIM =====");
                         System.out.println("Input Claim ID");
+                        // inputan dari user untuk Claim ID yang akan dicari
                         String searchedClaimId = scanner.nextLine().trim();
 
-                        // Inisialisasi untuk variabel penampung
+                        // Inisialisasi untuk variabel penampung untuk data yang ditemukan
                         ExpenseClaim foundClaim = null;
+                        // lakukan pencarian untuk seluruh data yang sama dengan input claim ID yang diberikan oleh uesr
                         for(ExpenseClaim claim : claims){
                             if(claim.getClaimId().equalsIgnoreCase(searchedClaimId)){
                                 foundClaim = claim;
                                 break;
                             }
                         }
+                        // apabila data ada akan masuk ke if dan apabila tidak ada akan masuk ke else
                         if(foundClaim != null){
+                            // lakukan approve
                             boolean approved = foundClaim.approveClaim();
+                            // jika berhasil akan mengembalikan menampilkan pesan succes dan menampilkan detail
+                            // dan jika gagal maka akan masuk ke else yang cek status claim tersebut tidak sesuai
                             if(approved){
                                 System.out.println("Approve "+ foundClaim.getClaimId() + " submitted successfully");
+                                // menampilkan data
+                                foundClaim.displayClaim();
                             }else {
                                 System.out.println("Claim  "+ foundClaim.getClaimId() + " cannot be submmited because its curent status is "+ foundClaim.getStatus());
                             }
-                            foundClaim.displayClaim();
+                            
                         } else {
                             System.out.println("There is no claim");
                         }
@@ -226,33 +243,40 @@ public class Main {
                         break;
                     }
                     case 6: {
+                        // apabila user memilih menu 6 akan menampilkan menu REJECT CLAIM
                         System.out.println("===== REJECT CLAIM =====");
                         System.out.println("Input Claim ID");
+                        // Inputan user untuk claim ID
                         String searchedClaimId = scanner.nextLine().trim();
 
-                        // Inisialisasi untuk variabel penampung
+                        // Inisialisasi untuk variabel penampung untuk data yang ditemukan
                         ExpenseClaim foundClaim = null;
+                        // lakukan pengecekan untuk semua data (looping) berdasarkan inputan yang diberikan oleh user
                         for(ExpenseClaim claim : claims){
                             if(claim.getClaimId().equalsIgnoreCase(searchedClaimId)){
                                 foundClaim = claim;
                                 break;
                             }
                         }
+                        // kalau misalnya datanya ditemukan akan masuk ke if dan tidak ditemukan masuk ke else
                         if(foundClaim != null){
                             System.out.println("Input Reason");
+                            // inputan dari user untuk alasan reject
                             String reason = scanner.nextLine().trim();
+                            // panggil method untuk reject
                             boolean rejected = foundClaim.rejectClaim(reason);
+                            // apabila berhasil maka menampilkan pesan berhasil dan apabila tidak akan menampilkan error penjelasan
+                            // menampilkan data apabila tidak ditemukan
                             if(rejected){
                                 System.out.println("Claim "+ foundClaim.getClaimId() + " Rejected successfully");
+                                foundClaim.displayClaim();
                             }else {
-                                System.out.println("Claim  "+ foundClaim.getClaimId() + " cannot be rejcted because its curent status is "+ foundClaim.getStatus());
+                                System.out.println("Claim  "+ foundClaim.getClaimId() + " cannot be rejected because its curent status is "+ foundClaim.getStatus());
                             }
-                            foundClaim.displayClaim();
+                            
                         } else {
                             System.out.println("Claim with ID "+ searchedClaimId + " was not found.");
                         }
-
-
                         break;
                     }
                     case 7: {

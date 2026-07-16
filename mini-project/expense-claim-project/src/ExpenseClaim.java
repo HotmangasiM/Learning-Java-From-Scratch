@@ -113,7 +113,11 @@ public class ExpenseClaim {
             status = ClaimStatus.SUBMITTED;
             // System.out.println("Success to change the status");
             return true;
+        } else if(status == ClaimStatus.SUBMITTED){
+            System.out.println("Cannot submit the claim because the status already "+ ClaimStatus.SUBMITTED);
+            return false;
         } else {
+            System.out.println("Cannot submit the claim because status is "+ status);
             return false;
         }
      }
