@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.Scanner;
 
@@ -19,7 +20,7 @@ public class Main {
         int nextClaimNumber = 1;
         // Menampilkan tampilan awal menu
         System.out.println("==========================");
-        System.out.println("  HOTMANGASI EXPENSE CLAIM MANAGEMENT SYSTEM   ");
+        System.out.println("  EXPENSE CLAIM MANAGEMENT SYSTEM   ");
         System.out.println("==========================");
         System.out.println();
             do { 
@@ -35,6 +36,7 @@ public class Main {
                 System.out.println("9. Delete Claim");
                 System.out.println("10. Filter Claim by Status");
                 System.out.println("11. Search Claim by Employee Name");
+                System.out.println("12. Sort Claims by Account");
                 System.out.println("0. Exit");
                 // user memasukkan menu dengan pilihan integer
                 selectedMenu = scanner.nextInt();
@@ -499,6 +501,40 @@ public class Main {
                          
                         break;
                     }
+                    case 12:
+                        {
+                            System.out.println("=== SORT CLAIM BY AMOUNT ===");
+                            if(claims.isEmpty()){
+                                System.out.println("No Expense claim Data");
+                            }
+                            ArrayList<ExpenseClaim> sortedClaims = new ArrayList<>(claims);
+
+                            System.out.println("You can choose this option");
+                            System.out.println("1. Lowest to Highest");
+                            System.out.println("2. Highest to Lowest");
+
+                            System.out.println("Enter your choice: ");
+                            int statusChoice = scanner.nextInt();
+                            scanner.nextLine();
+                            switch (statusChoice) {
+                                case 1:{
+                                    System.out.println("Ascending");
+                                    Collections.sort(sortedClaims, (a, b) -> Double.compare(a.getAmount(), b.getAmount()));
+                                    break;
+                                }
+                                case 2:{
+                                    System.out.println("Descending");
+                                    Collections.sort(sortedClaims, (a, b) -> Double.compare(b.getAmount(), a.getAmount()));
+                                    break;
+                                }
+                                default:
+                                    System.out.println("Invalid sort option.");
+                            }
+                            for(ExpenseClaim claim : sortedClaims){
+                                claim.displayClaim();
+                            }
+                            break;
+                        }
                     case 0:{
                                 // menuCategory = MenuCategory.EXIT;
                                 System.out.println("Logout successfully");
