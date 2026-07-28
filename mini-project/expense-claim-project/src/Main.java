@@ -37,6 +37,7 @@ public class Main {
                 System.out.println("10. Filter Claim by Status");
                 System.out.println("11. Search Claim by Employee Name");
                 System.out.println("12. Sort Claims by Account");
+                System.out.println("13. Sort Claims by Created Date");
                 System.out.println("0. Exit");
                 // user memasukkan menu dengan pilihan integer
                 selectedMenu = scanner.nextInt();
@@ -506,6 +507,7 @@ public class Main {
                             System.out.println("=== SORT CLAIM BY AMOUNT ===");
                             if(claims.isEmpty()){
                                 System.out.println("No Expense claim Data");
+                                break;
                             }
                             ArrayList<ExpenseClaim> sortedClaims = new ArrayList<>(claims);
 
@@ -529,6 +531,41 @@ public class Main {
                                 }
                                 default:
                                     System.out.println("Invalid sort option.");
+                            }
+                            for(ExpenseClaim claim : sortedClaims){
+                                claim.displayClaim();
+                            }
+                            break;
+                        }
+                    case 13:
+                        {
+                            System.out.println("=== SORT CLAIMS BY CREATED DATE ===");
+                            if(claims.isEmpty()){
+                                System.out.println("No expense data claim data");
+                                break;
+                            }
+                            ArrayList<ExpenseClaim> sortedClaims = new ArrayList<>(claims);
+
+                            System.out.println("1. Oldest to Newest");
+                            System.out.println("2. Newest to Oldest");
+                            System.out.println("Enter Your choice");
+
+                            int sortChoice = scanner.nextInt();
+                            scanner.nextLine();
+
+                            switch (sortChoice) {
+                                case 1:
+                                    System.out.println("Ascending Date");
+                                    Collections.sort(sortedClaims, (a, b) -> a.getCreatedAt().compareTo(b.getCreatedAt()));
+                                    System.out.println("Sorted Date successfully");
+                                    break;
+                                case 2:
+                                    System.out.println("Descending Date");
+                                    Collections.sort(sortedClaims, (a, b) -> b.getCreatedAt().compareTo(a.getCreatedAt()));
+                                    System.out.println("Sorted Date successfully");
+                                    break;
+                                default:
+                                    System.out.println("Invalid Choice");
                             }
                             for(ExpenseClaim claim : sortedClaims){
                                 claim.displayClaim();

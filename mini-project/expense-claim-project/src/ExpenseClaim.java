@@ -59,7 +59,7 @@ public class ExpenseClaim {
         return status;
      }
 
-     public LocalDateTime getCreateAt(){
+     public LocalDateTime getCreatedAt(){
         return createdAt;
      }
 
