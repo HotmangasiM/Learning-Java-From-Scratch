@@ -38,6 +38,7 @@ public class Main {
                 System.out.println("11. Search Claim by Employee Name");
                 System.out.println("12. Sort Claims by Account");
                 System.out.println("13. Sort Claims by Created Date");
+                System.out.println("14. Claim Summary Report");
                 System.out.println("0. Exit");
                 // user memasukkan menu dengan pilihan integer
                 selectedMenu = scanner.nextInt();
@@ -572,6 +573,67 @@ public class Main {
                             }
                             break;
                         }
+                    case 14: {
+                            System.out.println("=== CLAIM SUMMARY REPORT ===");
+                            if(claims.isEmpty()){
+                                System.out.println("No Expense claim data.");
+                                break;
+                            }
+
+                            int draftCount = 0;
+                            int submittedCount = 0;
+                            int approvedCount = 0;
+                            int rejectedCount = 0;
+                            int cancelledCount = 0;
+
+                            double totalAmount = 0;
+                            double highestAmount = claims.get(0).getAmount();
+                            double lowestAmount = claims.get(0).getAmount();
+
+                            for(ExpenseClaim claim: claims){
+                                totalAmount += claim.getAmount();
+                                switch (claim.getStatus()) {
+                                    case DRAFT:
+                                        draftCount++;
+                                        break;
+                                    case SUBMITTED:
+                                        submittedCount++;
+                                        break;
+                                    case APPROVED:
+                                        approvedCount++;
+                                        break;
+                                    case REJECTED:
+                                        rejectedCount++;
+                                        break;
+                                    case CANCELLED:
+                                        cancelledCount++;
+                                        break;
+                                }
+
+                                if(claim.getAmount() > highestAmount){
+                                    highestAmount = claim.getAmount();
+                                }
+
+                                if(claim.getAmount() < lowestAmount){
+                                    lowestAmount = claim.getAmount();
+                                }
+
+                            }
+                            double averageAmount = totalAmount / claims.size();
+
+                            System.out.println("Total Claims: "+ claims.size());
+                            System.out.println("Draft Claims : "+ draftCount);
+                            System.out.println("Submitted Claims : "+ submittedCount);
+                            System.out.println("Approved Claims: "+ approvedCount);
+                            System.out.println("Rejected Claims: "+ rejectedCount);
+                            System.out.println("Cancelled Claims: "+ cancelledCount);
+
+                            System.out.printf("Total Amount: %.2f%n", totalAmount);
+                            System.out.printf("Average Amount: %.2f%n", averageAmount);
+                            System.out.printf("Highest Amount: %.2f%n", highestAmount);
+                            System.out.printf("Lowest Amount: %.2f%n", lowestAmount);
+                            break;
+                    }
                     case 0:{
                                 // menuCategory = MenuCategory.EXIT;
                                 System.out.println("Logout successfully");
