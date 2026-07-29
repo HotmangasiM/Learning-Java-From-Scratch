@@ -15,6 +15,7 @@ public class Main {
         // ketika menu ditampilkan kembali
         // Mmebuat variable array penampung untuk semua data yang diinsert
         ArrayList<ExpenseClaim> claims = new ArrayList<>();
+        ClaimReportService claimReportService = new ClaimReportService();
         // membuat variable menu yang dipilih oleh user
         int selectedMenu;
         int nextClaimNumber = 1;
@@ -574,67 +575,7 @@ public class Main {
                             break;
                         }
                     case 14: {
-                            System.out.println("=== CLAIM SUMMARY REPORT ===");
-                            if(claims.isEmpty()){
-                                System.out.println("No Expense claim data.");
-                                break;
-                            }
-
-                            int draftCount = 0;
-                            int submittedCount = 0;
-                            int approvedCount = 0;
-                            int rejectedCount = 0;
-                            int cancelledCount = 0;
-
-                            double totalAmount = 0;
-                            double highestAmount = claims.get(0).getAmount();
-                            double lowestAmount = claims.get(0).getAmount();
-                            double totalApprovedAmount = 0;
-
-                            for(ExpenseClaim claim: claims){
-                                totalAmount += claim.getAmount();
-                                switch (claim.getStatus()) {
-                                    case DRAFT:
-                                        draftCount++;
-                                        break;
-                                    case SUBMITTED:
-                                        submittedCount++;
-                                        break;
-                                    case APPROVED:
-                                        approvedCount++;
-                                        totalApprovedAmount += claim.getAmount();
-                                        break;
-                                    case REJECTED:
-                                        rejectedCount++;
-                                        break;
-                                    case CANCELLED:
-                                        cancelledCount++;
-                                        break;
-                                }
-
-                                if(claim.getAmount() > highestAmount){
-                                    highestAmount = claim.getAmount();
-                                }
-
-                                if(claim.getAmount() < lowestAmount){
-                                    lowestAmount = claim.getAmount();
-                                }
-
-                            }
-                            double averageAmount = totalAmount / claims.size();
-
-                            System.out.println("Total Claims: "+ claims.size());
-                            System.out.println("Draft Claims : "+ draftCount);
-                            System.out.println("Submitted Claims : "+ submittedCount);
-                            System.out.println("Approved Claims: "+ approvedCount);
-                            System.out.println("Rejected Claims: "+ rejectedCount);
-                            System.out.println("Cancelled Claims: "+ cancelledCount);
-
-                            System.out.printf("Total Amount: %.2f%n", totalAmount);
-                            System.out.printf("Average Amount: %.2f%n", averageAmount);
-                            System.out.printf("Highest Amount: %.2f%n", highestAmount);
-                            System.out.printf("Lowest Amount: %.2f%n", lowestAmount);
-                            System.out.printf("Total Approved Amount: %.2f%n", totalApprovedAmount);
+                            claimReportService.displaySummaryReport(claims);
                             break;
                     }
                     case 0:{
@@ -646,7 +587,6 @@ public class Main {
                         System.out.println("Invalid Menu");
                 }
             } while (selectedMenu != 0);
-
             scanner.close();
         
     }
