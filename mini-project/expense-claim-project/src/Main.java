@@ -589,6 +589,7 @@ public class Main {
                             double totalAmount = 0;
                             double highestAmount = claims.get(0).getAmount();
                             double lowestAmount = claims.get(0).getAmount();
+                            double totalApprovedAmount = 0;
 
                             for(ExpenseClaim claim: claims){
                                 totalAmount += claim.getAmount();
@@ -601,6 +602,7 @@ public class Main {
                                         break;
                                     case APPROVED:
                                         approvedCount++;
+                                        totalApprovedAmount += claim.getAmount();
                                         break;
                                     case REJECTED:
                                         rejectedCount++;
@@ -632,10 +634,10 @@ public class Main {
                             System.out.printf("Average Amount: %.2f%n", averageAmount);
                             System.out.printf("Highest Amount: %.2f%n", highestAmount);
                             System.out.printf("Lowest Amount: %.2f%n", lowestAmount);
+                            System.out.printf("Total Approved Amount: %.2f%n", totalApprovedAmount);
                             break;
                     }
                     case 0:{
-                                // menuCategory = MenuCategory.EXIT;
                                 System.out.println("Logout successfully");
                                 break;
                             }
