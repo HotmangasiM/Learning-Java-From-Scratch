@@ -16,6 +16,7 @@ public class Main {
         // Mmebuat variable array penampung untuk semua data yang diinsert
         ArrayList<ExpenseClaim> claims = new ArrayList<>();
         ClaimReportService claimReportService = new ClaimReportService();
+        ClaimFileService claimFileService = new ClaimFileService();
         // membuat variable menu yang dipilih oleh user
         int selectedMenu;
         int nextClaimNumber = 1;
@@ -40,6 +41,8 @@ public class Main {
                 System.out.println("12. Sort Claims by Account");
                 System.out.println("13. Sort Claims by Created Date");
                 System.out.println("14. Claim Summary Report");
+                System.out.println("15. Filter Claims by Category");
+                System.out.println("16. Save claim to File");
                 System.out.println("0. Exit");
                 // user memasukkan menu dengan pilihan integer
                 selectedMenu = scanner.nextInt();
@@ -577,6 +580,65 @@ public class Main {
                     case 14: {
                             claimReportService.displaySummaryReport(claims);
                             break;
+                    }
+                    case 15: {
+                        System.out.println("===== FILTER CLAIMS BY CATEGORY =====");
+                        if(claims.isEmpty()){
+                            System.out.println("No Expense claim data.");
+                            break;
+                        }
+
+                        System.out.println("Choose Category: ");
+                        int categoryChoice = scanner.nextInt();
+                        scanner.nextLine();
+
+                        ClaimCategory selectedCategory = null;
+                        switch (categoryChoice) {
+                            case 1:
+                                selectedCategory = ClaimCategory.TRANSPORTATION;
+                                break;
+                            case 2:
+                                selectedCategory = ClaimCategory.MEAL;
+                                break;
+                            case 3:
+                                selectedCategory = ClaimCategory.ACCOMODATION;
+                                break;
+                            case 4:
+                                selectedCategory = ClaimCategory.OFFICE_SUPPLY;
+                                break;
+                            case 5:
+                                selectedCategory = ClaimCategory.MEDICAL;
+                                break;
+                            case 6:
+                                selectedCategory = ClaimCategory.INTERNET;
+                                break;
+                            case 7:
+                                selectedCategory = ClaimCategory.OTHER;
+                                break;
+                            default:
+                                System.out.println("Invalid category choice.");
+                        }
+                        if(selectedCategory == null){
+                            break;
+                        }
+
+                        int totalFound = 0;
+                        for(ExpenseClaim claim: claims){
+                            if(claim.getCategory() == selectedCategory){
+                                claim.displayClaim();
+                                totalFound++;
+                            }
+                        }
+                        if(totalFound == 0){
+                            System.out.println("No claims found with category "+ selectedCategory);
+                        } else {
+                            System.out.println("Total claims found: "+ totalFound);
+                        }
+                        break;
+                    }
+                    case 16: {
+                        claimFileService.saveClaims(claims);
+                        break;
                     }
                     case 0:{
                                 System.out.println("Logout successfully");
